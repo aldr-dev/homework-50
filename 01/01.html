@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Задание 1</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const Card = ({title, year, img}) => {
+            return (
+                <div className="card">
+                    <img className="card-img" src={img} alt={title}/>
+                    <div className="card-body">
+                        <h4 className="card-title">{title}</h4>
+                        <span className="card-year">{`Год выпуска: ${year}`}</span>
+                    </div>
+                </div>
+            );
+        };
+
+        const cards = (
+            <div className="container">
+                <div className="card-list">
+                    <Card img="https://www.kino-teatr.ru/movie/posters/big/4/96454.jpg" title="Великий Гэтсби" year="2013г."/>
+                    <Card img="https://static.kinoafisha.info/k/movie_posters/1080x1920/upload/movie_posters/4/7/4/8356474/315551951651852843.jpg" title="Джентльмены" year="2019г."/>
+                    <Card img="https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/96d93e3a-fdbf-4b6f-b02d-2fc9c2648a18/600x900" title="Титаник" year="1997."/>
+                </div>
+            </div>
+        );
+
+        const app = document.getElementById('app');
+        ReactDOM.createRoot(app).render(cards);
+    </script>
+</body>
+</html>
