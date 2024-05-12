@@ -15,108 +15,131 @@
     <div id="app"></div>
 
     <script type="text/babel">
-        const Logo = ({img, alt, href}) => {
-            return (
-                <a href={href} className="logo">
-                    <img src={img} alt={alt}/>
-                </a>
-            );
-        };
+        class Logo extends React.Component {
+            render() {
+                const { img, alt, href } = this.props;
+                return (
+                    <a href={href} className="logo">
+                        <img src={img} alt={alt}/>
+                    </a>
+                );
+            };
+        }
 
-        const MainNav = ({links, href}) => {
-            return (
-                <nav className="main-nav">
-                    <ul className="main-nav-list">
-                        {links.map((link, index) => (
-                            <li key={index} className="main-nav-item">
-                                <a href={href} className="main-nav-link">{link}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            );
-        };
-
-        const Header = () => {
-            return (
-                <header className="header">
-                    <div className="container header-inner">
-                        <Logo href="#" img="https://j36949281.myjino.ru/logo.svg" alt="Enphoria"/>
-                        <MainNav href="#" links={['Men', 'Women', 'Combos', 'Joggers', 'T-shirts']}/>
-                        <button type="button" className="cart-btn">
-                            <span className="cart-btn-count">0</span>
-                        </button>
-                    </div>
-                </header>
-            );
-        };
-
-        const Sidebar = ({links, categoryName, href}) => {
-            return (
-                <aside className="sidebar">
-                    <nav className="sidebar-nav">
-                        <div className="sidebar-category">{categoryName}</div>
-                        <ul className="sidebar-nav-list">
+        class MainNav extends React.Component {
+            render() {
+                const { links, href } = this.props;
+                return (
+                    <nav className="main-nav">
+                        <ul className="main-nav-list">
                             {links.map((link, index) => (
-                                <li key={index} className="sidebar-nav-item">
-                                    <a href={href} className="sidebar-nav-link">{link}</a>
+                                <li key={index} className="main-nav-item">
+                                    <a href={href} className="main-nav-link">{link}</a>
                                 </li>
                             ))}
                         </ul>
                     </nav>
-                </aside>
-            );
-        };
+                );
+            };
+        }
 
-        const Card = ({title, price, img, size, href}) => {
-            return (
-                <a href={href} className="card">
-                    <img className="card-img" src={img} alt={title}/>
-                    <div className="card-body">
-                        <h4 className="card-title">{title}</h4>
-                        <span className="card-price">{`Price: ${price}`}</span>
-                        <span className="card-size">{`Size: ${size}`}</span>
+        class Header extends React.Component {
+            render() {
+                return (
+                    <header className="header">
+                        <div className="container header-inner">
+                            <Logo href="#" img="https://j36949281.myjino.ru/logo.svg" alt="Enphoria"/>
+                            <MainNav href="#" links={['Men', 'Women', 'Combos', 'Joggers', 'T-shirts']}/>
+                            <button type="button" className="cart-btn">
+                                <span className="cart-btn-count">0</span>
+                            </button>
+                        </div>
+                    </header>
+                );
+            };
+        }
+
+        class Sidebar extends React.Component {
+            render() {
+                const { links, categoryName, href } = this.props;
+                return (
+                    <aside className="sidebar">
+                        <nav className="sidebar-nav">
+                            <div className="sidebar-category">{categoryName}</div>
+                            <ul className="sidebar-nav-list">
+                                {links.map((link, index) => (
+                                    <li key={index} className="sidebar-nav-item">
+                                        <a href={href} className="sidebar-nav-link">{link}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </aside>
+                );
+            };
+        }
+
+        class Card extends React.Component {
+            render() {
+                const { title, price, img, size, href } = this.props;
+                return (
+                    <a href={href} className="card">
+                        <img className="card-img" src={img} alt={title}/>
+                        <div className="card-body">
+                            <h4 className="card-title">{title}</h4>
+                            <span className="card-price">{`Price: ${price}`}</span>
+                            <span className="card-size">{`Size: ${size}`}</span>
+                        </div>
+                    </a>
+                );
+            };
+        }
+
+        class MainContent extends React.Component {
+            render() {
+                return (
+                    <main className="content">
+                        <Card href="#" img="https://j36949281.myjino.ru/hoodies-and-sweetshirt.jpeg" title="Hoodies & Sweatshirt"  price="10$" size="M"/>
+                        <Card href="#" img="https://j36949281.myjino.ru/boxers.jpeg" title="Boxers" price="20$" size="L"/>
+                        <Card href="#" img="https://j36949281.myjino.ru/polo-t-shirt.jpeg" title="Polo-t-shirt" price="40$" size="XXL"/>
+                        <Card href="#" img="https://j36949281.myjino.ru/printed-t-shirts.jpeg" title="Printed-t-shirts" price="25$" size="S"/>
+                    </main>
+                );
+            };
+        }
+
+        class Footer extends React.Component {
+            render() {
+                const { copyrightText } = this.props;
+                return (
+                    <footer className="footer">
+                        <div className="container">
+                            <span className="copyright">{copyrightText}</span>
+                        </div>
+                    </footer>
+                );
+            };
+        }
+
+        class Page extends React.Component {
+            render() {
+                return (
+                    <div className="wrapper">
+                        <Header/>
+                        <div className="container">
+                            <div className="content-wrapper">
+                                <Sidebar links={['Women\'s Clothing', 'Men\'s Clothing', 'Children\'s Clothing', 'Jeans and trousers', 'Dresses and sundresses', 'Tees & T-Shirt', 'Hoodies & Sweatshirt']} categoryName="Сlothes" href="#"/>
+                                <MainContent/>
+                            </div>
+                        </div>
+                        <Footer copyrightText="All rights reserved 2024 &copy;"/>
                     </div>
-                </a>
-            );
-        };
-
-        const MainContent = () => {
-            return (
-                <main className="content">
-                    <Card href="#" img="https://j36949281.myjino.ru/hoodies-and-sweetshirt.jpeg" title="Hoodies & Sweatshirt"  price="10$" size="M"/>
-                    <Card href="#" img="https://j36949281.myjino.ru/boxers.jpeg" title="Boxers" price="20$" size="L"/>
-                    <Card href="#" img="https://j36949281.myjino.ru/polo-t-shirt.jpeg" title="Polo-t-shirt" price="40$" size="XXL"/>
-                    <Card href="#" img="https://j36949281.myjino.ru/printed-t-shirts.jpeg" title="Printed-t-shirts" price="25$" size="S"/>
-                </main>
-            );
-        };
-
-        const Footer = ({copyrightText}) => {
-            return (
-                <footer className="footer">
-                    <div className="container">
-                        <span className="copyright">{copyrightText}</span>
-                    </div>
-                </footer>
-            );
-        };
-
-        const page = (
-            <div className="wrapper">
-                <Header/>
-                <div className="container">
-                    <div className="content-wrapper">
-                        <Sidebar links={['Women\'s Clothing', 'Men\'s Clothing', 'Children\'s Clothing', 'Jeans and trousers', 'Dresses and sundresses', 'Tees & T-Shirt', 'Hoodies & Sweatshirt']} categoryName="Сlothes" href="#"/>
-                        <MainContent/>
-                    </div>
-                </div>
-                <Footer copyrightText="All rights reserved 2024 &copy;"/>
-            </div>
-        );
+                );
+            };
+        }
 
         const app = document.getElementById('app');
-        ReactDOM.createRoot(app).render(page);
+        ReactDOM.createRoot(app).render(<Page />);
     </script>
 </body>
 </html>
