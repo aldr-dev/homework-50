@@ -1,0 +1,174 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    color: #3C4242;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.logo {
+    margin-right: 50px;
+}
+
+.cart-btn {
+    border: none;
+    padding-bottom: 33px;
+    cursor: pointer;
+    background: transparent url('https://j36949281.myjino.ru/ic-cart.svg') center bottom no-repeat;
+    margin-left: auto;
+}
+
+.cart-btn-count {
+    display: inline-block;
+    background: #eee;
+    color: #000;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    line-height: 22px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.main-nav-list {
+    gap: 20px;
+    display: flex;
+}
+
+.main-nav-link {
+    font-size: 18px;
+    transition: .2s ease-in-out;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav-link:hover {
+    border-bottom: 2px solid #000;
+}
+
+.sidebar {
+    border-radius: 5px;
+    background: #fff;
+    width: 250px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sidebar-category {
+    padding: 10px 15px;
+    font-weight: 700;
+    background: rgba(194, 193, 193, .5);
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav-item {
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav-link {
+    display: block;
+    padding: 10px 15px;
+    transition: .2s ease-in-out;
+}
+
+.sidebar-nav-link:hover {
+    background: #eee;
+}
+
+.content {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+}
+
+.content-wrapper {
+    gap: 15px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.card {
+    display: block;
+    width: 200px;
+    border-radius: 5px;
+    outline: 1px solid #eee;
+    overflow: hidden;
+    transition: .3s ease-in-out;
+    background: #fff;
+}
+
+.card:hover {
+    outline: 1px solid transparent;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+}
+
+.card-img {
+    width: 100%;
+    max-width: 100%;
+    height: 265px;
+    display: block;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    margin: 0 0 10px 0;
+}
+
+.card-size, .card-price {
+    display: block;
+}
+
+.footer {
+    margin-top: auto;
+    background: #eee;
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+}
+
+.copyright {
+    display: block;
+    text-align: right;
+}
